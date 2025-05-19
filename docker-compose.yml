@@ -6,8 +6,12 @@ services:
     env_file: .env
     ports:
       - '127.0.0.1:${N8N_PORT}:5678'
+    networks:
+      - eddie3-networks
     volumes:
       - n8n_data:/home/node/.n8n
-
+networks:
+  eddie3-networks:
+    external: true
 volumes:
   n8n_data:
